@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 17:04:58 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/09 10:33:21 by rdel-fra         ###   ########.fr       */
+/*   Created: 2024/10/09 10:35:22 by rdel-fra          #+#    #+#             */
+/*   Updated: 2024/10/09 11:06:45 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strdup(const char *s)
 {
-	unsigned char	*ptr;
-	int				i;
+	char	*dest;
+	int		i;
 
+	dest = (char *)malloc(ft_strlen((char *)s) * sizeof(char));
 	i = 0;
-	ptr = (unsigned char *)s;
-	while (n > 0)
+	while (s[i] != '\0')
 	{
-		ptr[i] = 0;
+		dest[i] = s[i];
 		i++;
-		n--;
 	}
+	dest[i] = '\0';
+	return ((char *)dest);
 }
-
-// int main(void)
-// {
-// 	char ptr[] = "hello";
-
-// 	bzero(ptr, 3);
-// }

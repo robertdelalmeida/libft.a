@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 17:04:58 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/09 10:33:21 by rdel-fra         ###   ########.fr       */
+/*   Created: 2024/10/09 10:22:40 by rdel-fra          #+#    #+#             */
+/*   Updated: 2024/10/09 15:19:46 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	unsigned char	*ptr;
-	int				i;
+	size_t	i;
+	size_t	j;
 
+	if (little == 0)
+		return ((char *)big);
 	i = 0;
-	ptr = (unsigned char *)s;
-	while (n > 0)
+	while (big[i] != '\0' && i < len)
 	{
-		ptr[i] = 0;
+		j = 0;
+		while (big[i + j] == little[j])
+		{
+			if (little[j] == '\0')
+				return ((char *)&big[i]);
+			j++;
+		}
 		i++;
-		n--;
 	}
+	return (NULL);
 }
-
-// int main(void)
-// {
-// 	char ptr[] = "hello";
-
-// 	bzero(ptr, 3);
-// }

@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 17:04:58 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/09 10:33:21 by rdel-fra         ###   ########.fr       */
+/*   Created: 2024/10/09 14:22:34 by rdel-fra          #+#    #+#             */
+/*   Updated: 2024/10/09 14:23:16 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putchar(char c)
 {
-	unsigned char	*ptr;
-	int				i;
-
-	i = 0;
-	ptr = (unsigned char *)s;
-	while (n > 0)
-	{
-		ptr[i] = 0;
-		i++;
-		n--;
-	}
+	write(1, &c, 1);
 }
-
-// int main(void)
-// {
-// 	char ptr[] = "hello";
-
-// 	bzero(ptr, 3);
-// }

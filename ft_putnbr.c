@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 17:04:58 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/09 10:33:21 by rdel-fra         ###   ########.fr       */
+/*   Created: 2024/10/09 14:24:39 by rdel-fra          #+#    #+#             */
+/*   Updated: 2024/10/09 15:10:16 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putnbr(int nb)
 {
-	unsigned char	*ptr;
-	int				i;
+	int	i;
 
-	i = 0;
-	ptr = (unsigned char *)s;
-	while (n > 0)
+	while (nb > 10)
 	{
-		ptr[i] = 0;
-		i++;
-		n--;
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
 	}
+	ft_putchar(nb + '0');
 }
-
-// int main(void)
-// {
-// 	char ptr[] = "hello";
-
-// 	bzero(ptr, 3);
-// }
