@@ -6,13 +6,14 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:43:54 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/09 15:37:08 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/10 13:19:41 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 

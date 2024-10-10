@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 11:07:52 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/10 12:38:13 by rdel-fra         ###   ########.fr       */
+/*   Created: 2024/10/10 12:41:46 by rdel-fra          #+#    #+#             */
+/*   Updated: 2024/10/10 14:06:52 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned char	*ptr;
-	size_t			i;
+	size_t	i;
+	size_t	j;
+	size_t	num;
 
-	i = 0;
-	ptr = NULL;
-	while (i < (nmemb * size))
+	num = 0;
+	num = ft_strlen(src) + ft_strlen(dst);
+	i = ft_strlen(dst);
+	j = 0;
+	while (j < size)
 	{
-		ptr[i] = 0;
-		i++;
+		dst[i + j] = src[j];
+		j++;
 	}
-	return ((void *)&ptr[0]);
+	dst[i + j] = '\0';
+	return (num);
 }

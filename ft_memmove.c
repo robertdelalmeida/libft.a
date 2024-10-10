@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 11:07:52 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/10 12:38:13 by rdel-fra         ###   ########.fr       */
+/*   Created: 2024/10/10 13:53:14 by rdel-fra          #+#    #+#             */
+/*   Updated: 2024/10/10 14:07:15 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*ptr;
+	unsigned char	*ptrsrc;
+	unsigned char	*temp;
+	unsigned char	*ptrdest;
 	size_t			i;
 
+	temp = NULL;
+	ptrsrc = (unsigned char *)src;
+	temp = ft_memcpy(temp, ptrsrc, n);
+	ptrdest = (unsigned char *)dest;
 	i = 0;
-	ptr = NULL;
-	while (i < (nmemb * size))
+	while (temp[i] != '\0' && i < n)
 	{
-		ptr[i] = 0;
+		ptrdest[i] = temp[i];
 		i++;
 	}
-	return ((void *)&ptr[0]);
+	return (ptrdest);
 }
