@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 14:08:55 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/10 16:28:17 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:37:15 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*ptrs;
-	size_t			i;
+	char	*ptrs;
+	size_t	i;
 
-	ptrs = (unsigned char *)s;
+	ptrs = (char *)s;
 	i = 0;
 	while (ptrs[i] != '\0' && i < n)
 	{

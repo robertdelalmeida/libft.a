@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 16:09:20 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/10 13:34:03 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:24:57 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ char	*ft_strrchr(const char *s, int c)
 	i = 0;
 	while (s[i] != '\0')
 		i++;
-	while (i > 0)
+	if (c == '\0')
+		return ((char *)&s[i]);
+	while (i >= 0)
 	{
 		if (s[i] == c)
 			return ((char *)&s[i]);

@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 11:07:52 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/10 12:38:13 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:43:37 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t			i;
 
 	i = 0;
-	ptr = NULL;
+	ptr = (unsigned char *)malloc(nmemb * size);
 	while (i < (nmemb * size))
 	{
 		ptr[i] = 0;
