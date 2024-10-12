@@ -32,7 +32,7 @@ int	ft_atoi(const char *nptr)
 	{
 		num = num * 10 + (nptr[i] - '0');
 		i++;
-	}	
+	}
 	return (num * sign);
 }
 
