@@ -6,36 +6,65 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 17:24:59 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/11 13:22:23 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/14 17:55:40 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	ft_count(char const *s, char c);
+
 char	**ft_split(char const *s, char c)
 {
-	char	**ptr;
-	char	*str1;
-	char	*str2;
+	char	**ptr_matrix;
+	int		keep;
+	int		len;
+	int		j;
+
+	len = ft_count(s, c);
+	ptr_matrix = (char **)malloc((len + 1) * sizeof(char));
+	len = 0;
+	keep = 0;
+	while (s[len] != '\0')
+	{
+		if (s[len] == c)
+		{
+			ptr_matrix[j] = ft_alloc(s, keep, len);
+			keep = len + 1;
+			j++;
+		}
+		len++;
+	}
+	return (ptr_matrix);
+}
+
+char	*ft_alloc(char const *s, int keep, int len)
+{
+	char	*ptr;
 	int		i;
 
+	ptr = (char *)malloc((len - keep + 1) * sizeof(char));
 	i = 0;
-	str1 = NULL;
-	ptr = (char **)malloc(3 * sizeof(char));
-	while (s[i] != c && s[i] != '\0')
+	while (keep < len)
 	{
-		str1[i] = s[i];
+		ptr[i] = s[keep];
+		keep++;
 		i++;
 	}
-	str1[i] = '\0';
-	str2 = (char *)&s[i + 1];
-	i = 0;
-	while (str2[i] != '\0')
-		i++;
-	str2[i] = '\0';
-	ptr[0] = &str1[0];
-	ptr[1] = &str2[0];
-	ptr[2] = (void *)0;
-	free(ptr);
+	ptr[i] = '\0';
 	return (ptr);
+}
+
+int	ft_count(char const *s, char c)
+{
+	int	count;
+	int	i;
+
+	while (s[i] != '\0')
+	{
+		if (s[i] == c && i != 0 && (i + 1) != '\0' && (i - 1) != c)
+			count++;
+		i++;
+	}
+	return (count);
 }
