@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 14:08:55 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/11 15:37:15 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/15 16:35:22 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (ptrs[i] == c)
+		if (ptrs[i] == (char)c)
 			return (&ptrs[i]);
 		i++;
 	}

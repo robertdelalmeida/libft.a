@@ -6,14 +6,14 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:55:04 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/14 17:09:33 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/15 18:01:41 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_rside(char const *ptrs1, char const *ptrset, int i);
-int	ft_lside(char const *ptrs1, char const *ptrset);
+static int	ft_rside(char const *ptrs1, char const *ptrset, int i);
+static int	ft_lside(char const *ptrs1, char const *ptrset);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -22,13 +22,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		j;
 	int		k;
 
-	i = 0;
-	while (s1[i] != '\0')
-		i++;
+	i = ft_strlen(s1);
 	k = ft_lside(s1, set);
 	i = ft_rside(s1, set, i);
 	j = 0;
-	ptrim = (char *)malloc(((i - k) + 1) * sizeof(char));
+	ptrim = (char *)malloc((i - k + 1) * sizeof(char));
 	if (!ptrim)
 		return (NULL);
 	while (k < i)
@@ -41,7 +39,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (ptrim);
 }
 
-int	ft_rside(char const *ptrs1, char const *ptrset, int i)
+static int	ft_rside(char const *ptrs1, char const *ptrset, int i)
 {
 	int	j;
 
@@ -58,7 +56,7 @@ int	ft_rside(char const *ptrs1, char const *ptrset, int i)
 	return (i);
 }
 
-int	ft_lside(char const *ptrs1, char const *ptrset)
+static int	ft_lside(char const *ptrs1, char const *ptrset)
 {
 	int	j;
 	int	k;
@@ -70,9 +68,12 @@ int	ft_lside(char const *ptrs1, char const *ptrset)
 		if (ptrs1[k] == ptrset[j])
 		{
 			k++;
-			j = -1;
+			j = 0;
 		}
-		j++;
+		else
+		{
+			j++;
+		}
 	}
 	return (k);
 }

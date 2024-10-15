@@ -6,12 +6,11 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 12:41:46 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/11 18:56:02 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/15 18:01:17 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

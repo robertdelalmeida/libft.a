@@ -6,14 +6,14 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 10:42:27 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/14 14:58:12 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/15 12:22:18 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*populate(char *ptr, unsigned int nb, int len, int sign);
-int		allocate(int nb);
+static char	*populate(char *ptr, unsigned int nb, int len, int sign);
+static int	allocate(int nb);
 
 char	*ft_itoa(int n)
 {
@@ -37,7 +37,7 @@ char	*ft_itoa(int n)
 	return (ptr);
 }
 
-int	allocate(int nb)
+static int	allocate(int nb)
 {
 	int	len;
 
@@ -55,7 +55,7 @@ int	allocate(int nb)
 	return (len);
 }
 
-char	*populate(char *ptr, unsigned int nb, int len, int sign)
+static char	*populate(char *ptr, unsigned int nb, int len, int sign)
 {
 	if (sign < 0)
 		ptr[len + 1] = '\0';

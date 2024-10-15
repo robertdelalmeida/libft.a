@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 13:44:54 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/14 15:19:51 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:22:50 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	ptrdest = (char *)dest;
 	ptrsrc = (char *)src;
+	if (!src && !dest)
+		return (NULL);
 	i = 0;
 	while (i < n)
 	{
