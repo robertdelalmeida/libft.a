@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 16:30:52 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/17 10:55:28 by rdel-fra         ###   ########.fr       */
+/*   Created: 2024/10/17 11:15:13 by rdel-fra          #+#    #+#             */
+/*   Updated: 2024/10/17 12:08:19 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*sub;
-	size_t	j;
+	unsigned int	nb;
 
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (start + len > ft_strlen(s))
-		len = ft_strlen(s) - start;
-	sub = (char *)malloc((len + 1) * sizeof(char));
-	if (!sub)
-		return (NULL);
-	j = 0;
-	while (j < len)
+	nb = n;
+	if (n < 0)
 	{
-		sub[j] = s[start + j];
-		j++;
+		nb = n * (-1);
+		write(fd, "-", 1);
 	}
-	sub[j] = '\0';
-	return (sub);
+	if (nb >= 10)
+		ft_putnbr_fd(nb / 10, fd);
+	ft_putchar_fd((nb % 10) + '0', fd);
 }

@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:55:04 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/15 18:01:41 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/17 10:17:51 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = ft_strlen(s1);
 	k = ft_lside(s1, set);
 	i = ft_rside(s1, set, i);
+	if (k > i)
+		return (ft_strdup(""));
 	j = 0;
-	ptrim = (char *)malloc((i - k + 1) * sizeof(char));
+	ptrim = (char *)malloc((i - k + 2) * sizeof(char));
 	if (!ptrim)
 		return (NULL);
-	while (k < i)
+	while (k - 1 < i)
 	{
 		ptrim[j] = s1[k];
 		j++;
@@ -39,19 +41,22 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (ptrim);
 }
 
-static int	ft_rside(char const *ptrs1, char const *ptrset, int i)
+static int	ft_rside(char const *ptrs1, char const *ptrset, int count)
 {
 	int	j;
+	int	i;
 
+	i = count - 1;
 	j = 0;
-	while (ptrset[j] != '\0')
+	while (i > 0 && ptrset[j] != '\0')
 	{
-		if (ptrs1[i - 1] == ptrset[j])
+		if (ptrs1[i] == ptrset[j])
 		{
 			i--;
 			j = 0;
 		}
-		j++;
+		else
+			j++;
 	}
 	return (i);
 }
@@ -63,7 +68,7 @@ static int	ft_lside(char const *ptrs1, char const *ptrset)
 
 	k = 0;
 	j = 0;
-	while (ptrset[j] != '\0')
+	while (ptrs1[k] != '\0' && ptrset[j] != '\0')
 	{
 		if (ptrs1[k] == ptrset[j])
 		{
@@ -71,9 +76,12 @@ static int	ft_lside(char const *ptrs1, char const *ptrset)
 			j = 0;
 		}
 		else
-		{
 			j++;
-		}
 	}
 	return (k);
 }
+
+// int main()
+// {
+// 	printf("'%s'\n", ft_strtrim("  \t \t \n   \n\n\n\t", " \n\t"));
+// }

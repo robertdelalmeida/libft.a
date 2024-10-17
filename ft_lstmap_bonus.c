@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 16:30:52 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/17 10:55:28 by rdel-fra         ###   ########.fr       */
+/*   Created: 2024/10/17 17:02:23 by rdel-fra          #+#    #+#             */
+/*   Updated: 2024/10/17 17:24:33 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*sub;
-	size_t	j;
+	t_list	*new_node;
+	t_list	*tmp;
 
-	if (!s)
+	if (!lst || !f)
 		return (NULL);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (start + len > ft_strlen(s))
-		len = ft_strlen(s) - start;
-	sub = (char *)malloc((len + 1) * sizeof(char));
-	if (!sub)
+	new_node = ft_lstnew(f((*lst).content));
+	if (!new_node)
 		return (NULL);
-	j = 0;
-	while (j < len)
+	tmp = new_node;
+	lst = (*lst).next;
+	while (lst != NULL)
 	{
-		sub[j] = s[start + j];
-		j++;
+		(*tmp).next = ft_lstnew(f((*lst).content));
+		if (!tmp->next)
+		{
+			ft_lstclear(&new_node, del);
+			return (NULL);
+		}
+		tmp = (*tmp).next;
+		lst = (*lst).next;
 	}
-	sub[j] = '\0';
-	return (sub);
+	return (new_node);
 }
