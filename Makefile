@@ -20,13 +20,14 @@ OBJS_BONUS	=	${SRCS_BONUS:.c=.o}
 
 all: ${NAME}
 
-${NAME}: ${OBJS} ${OBJS_BONUS}
-	${AR} ${NAME} ${OBJS} ${OBJS_BONUS}
+${NAME}: ${OBJS}
+	${AR} ${NAME} ${OBJS}
+
+bonus: ${OBJS_BONUS}
+	${AR} ${NAME} ${OBJS_BONUS}
 
 %.o: %.c ${HEADER}
 	${CC} ${CFLAGS} -c $< -o $@
-
-bonus: ${OBJS_BONUS}
 
 clean:
 	${RM} ${OBJS} ${OBJS_BONUS}

@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:55:04 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/17 10:17:51 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:22:35 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,3 @@ static int	ft_lside(char const *ptrs1, char const *ptrset)
 	}
 	return (k);
 }
-
-// int main()
-// {
-// 	printf("'%s'\n", ft_strtrim("  \t \t \n   \n\n\n\t", " \n\t"));
-// }
