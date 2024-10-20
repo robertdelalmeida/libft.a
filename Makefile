@@ -1,18 +1,6 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/20 13:19:55 by marvin            #+#    #+#              #
-#    Updated: 2024/10/20 13:19:55 by marvin           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME		=	libft.a
-CC			=	cc
-CFLAGS		=	-Wall -Werror -Wextra
+CC			=	 gcc
+FLAGS		=	-Wall -Werror -Wextra
 
 SRCS		=	ft_isalpha.c \
 				ft_isdigit.c \
@@ -62,6 +50,7 @@ SRCS_BONUS	=	ft_lstnew_bonus.c \
 HEADER		=	libft.h
 AR			=	ar rcs
 RM			=	rm -rf
+
 OBJS		=	${SRCS:.c=.o}
 OBJS_BONUS	=	${SRCS_BONUS:.c=.o}
 
@@ -72,7 +61,7 @@ ${NAME}: ${OBJS}
 bonus: ${OBJS_BONUS}
 
 %.o:%.c ${HEADER}
-	${CC} ${CFLAGS} -c $< -o $@
+	${CC} ${FLAGS} -c $< -o $@
 	${AR} ${NAME} $@
 
 clean:
