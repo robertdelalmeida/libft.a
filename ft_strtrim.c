@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:55:04 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/18 15:22:35 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:12:07 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		j;
 	int		k;
 
+	if (!s1 || !set)
+		return (NULL);
 	i = ft_strlen(s1);
 	k = ft_lside(s1, set);
 	i = ft_rside(s1, set, i);

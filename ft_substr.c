@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:30:52 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/17 10:55:28 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:33:14 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!sub)
 		return (NULL);
 	j = 0;
-	while (j < len)
+	while (j < len && s[start + j] != '\0')
 	{
 		sub[j] = s[start + j];
 		j++;

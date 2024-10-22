@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 14:54:47 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/10/17 15:55:32 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/10/21 17:28:35 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 	if (!lst || !new)
 		return ;
-	else if (*lst == NULL)
+	if (*lst == NULL)
 	{
 		*lst = new;
 		return ;
 	}
-	else
-	{
-		nav = *lst;
-		while ((*nav).next != NULL)
-			nav = (*nav).next;
-		(*nav).next = new;
-	}
+	nav = *lst;
+	while ((*nav).next != NULL)
+		nav = (*nav).next;
+	(*nav).next = new;
 }
